@@ -35,7 +35,7 @@ os.chdir(binary_path)
 message = os.environ['NOTIFY_HOSTNAME'] + " "
 
 if os.environ['NOTIFY_WHAT'] == 'SERVICE':
-    message += os.environ['NOTIFY_SERVICESTATE'][:2] + " "
+    message += os.environ['NOTIFY_SERVICESTATE'] + " "
     message += os.environ['NOTIFY_SERVICEDESC'] + " "
     message += os.environ['NOTIFY_SERVICEOUTPUT']
 
