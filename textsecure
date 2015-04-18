@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # TextSecure (using janimo library)
-# Notification via TextSecure using the janimo's library (https://github.com/janimo/textsecure/)
+# Notification via TextSecure using janimo's library (https://github.com/janimo/textsecure/)
 
 import os, sys
 
@@ -27,9 +27,9 @@ if not binary:
     sys.stderr.write('Error: TextSecure binary not found\n')
     sys.exit(1)
 
-binary_path = os.path.split(binary)[0]
-
 # atm, textsecure by janimo can't get location of .config and .storage folders via cmdline
+# so we need to change the workdir
+binary_path = os.path.split(binary)[0]
 os.chdir(binary_path)
 
 message = os.environ['NOTIFY_HOSTNAME'] + " "
