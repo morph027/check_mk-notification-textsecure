@@ -14,7 +14,7 @@ Each _check_mk_ site should have ```~/local/bin``` in it's _PATH_ variable. Just
 
 ##textsecure notification plugin
 
-Get the _textsecure_ binary from this repo, place it into ```$CHECK_MK_PATH/share/check_mk/notifications/``` and make sure it's executable. In [OMD](http://omdistro.org/), this is something like ```/opt/omd/versions/$OMD_VERSION/share/check_mk/notifications/```.
+Get the _textsecure_ binary from this repo, place it into ```$CHECK_MK_SITE_PATH/local/share/check_mk/notifications/``` and make sure it's executable.
 
 #Usage
 
