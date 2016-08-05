@@ -2,7 +2,7 @@
 # TextSecure using SSH Gateway
 # Notification via TextSecure using SSH Gateway
 
-import os, sys
+import re, os, sys
 
 def which(program):
     def is_exe(fpath):
