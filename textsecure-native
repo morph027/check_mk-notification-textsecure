@@ -2,7 +2,7 @@
 # TextSecure (using janimo library)
 # Notification via TextSecure using janimo's library (https://github.com/janimo/textsecure/)
 
-import os, sys, re
+import os, sys
 
 def which(program):
     def is_exe(fpath):
@@ -37,7 +37,7 @@ message = os.environ['NOTIFY_HOSTNAME'] + " "
 if os.environ['NOTIFY_WHAT'] == 'SERVICE':
     message += os.environ['NOTIFY_SERVICESTATE'] + " "
     message += os.environ['NOTIFY_SERVICEDESC'] + " "
-    message += re.escape(os.environ['NOTIFY_SERVICEOUTPUT'])
+    message += os.environ['NOTIFY_SERVICEOUTPUT']
 
 else:
     message += "is " + os.environ['NOTIFY_HOSTSTATE']
