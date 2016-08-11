@@ -2,7 +2,7 @@
 # TextSecure (using janimo library)
 # Notification via TextSecure using janimo's library (https://github.com/janimo/textsecure/)
 
-import os, sys
+import os, sys, re
 
 def which(program):
     def is_exe(fpath):
