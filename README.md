@@ -20,4 +20,4 @@ Get the _textsecure_ binary you want to use from this repo, place it into ```$CH
 
 #Usage
 
-Before you can use the plugin, you need to set a **_Pager address_** for the user in WATO. Also you user must use **_Flexible Custom Notifications_**. In it's section, just select one of the **_TextSecure (using janimos library)/using SSH Gateway/using HTTP Gateway_** as **_Notification Plugin_**.
+Before you can use the plugin, you need to set a **_Pager address_** for the user in WATO. Also you need to add the plugin as notification rule. To do so, just navigate to the **_Notifications_** item in the **_WATO Configuration_** menu panel and add a new rule selecting one of the **_TextSecure (using janimos library)/using SSH Gateway/using HTTP Gateway_**.
