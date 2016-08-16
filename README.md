@@ -18,6 +18,13 @@ See above, only necessary when using the textsecure client directly on your _che
 
 Get the _textsecure_ binary you want to use from this repo, place it into ```$CHECK_MK_SITE_PATH/local/share/check_mk/notifications/``` and make sure it's executable.
 
+In case of ```textsecure-via-ssh```, you'll also need to check some variables:
+
+
+* ```signal_user``` : The user which tries to SSH into the remote system. Make sure, it has access via _authorized_keys_
+* ```signal_gateway``` = The hostname of your signal-gateway providing the SSH access
+* ```signal_wrapper``` = The remote location of the wrapper binary
+
 #Usage
 
 Before you can use the plugin, you need to set a **_Pager address_** for the user in WATO. Also you need to add the plugin as notification rule. To do so, just navigate to the **_Notifications_** item in the **_WATO Configuration_** menu panel and add a new rule selecting one of the **_TextSecure (using janimos library)/using SSH Gateway/using HTTP Gateway_**.

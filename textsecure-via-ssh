@@ -1,6 +1,6 @@
 #!/usr/bin/python
-# TextSecure using SSH Gateway
-# Notification via TextSecure using SSH Gateway
+# Signal using SSH Gateway
+# Notification via Signal using SSH Gateway
 
 import re, os, sys
 
@@ -22,9 +22,9 @@ def which(program):
     return None
 
 binary = which('ssh')
-textsecure_user = "textsecure"
-textsecure_gateway = "textsecure"
-textsecure_wrapper = "/var/www/textsecure-gateway/bin/textsecure-wrapper"
+signal_user = "axolotl"
+signal_gateway = "signal-gateway"
+signal_wrapper = "/var/www/signal-gateway/bin/signal-wrapper"
 
 if not binary:
     sys.stderr.write('Error: ssh not found\n')
@@ -46,4 +46,10 @@ if not recipient:
     sys.stderr.write('Error: No contact pager set for %s\n' % os.environ['NOTIFY_CONTACTNAME'])
     sys.exit(1)
 
-os.system('%s %s@%s %s --to %s --message \\"%s\\"' % (binary, textsecure_user, textsecure_gateway, textsecure_wrapper, recipient, message))
+try: os.environ['NOTIFY_PARAMETERS']
+except NameError: os.environ['NOTIFY_PARAMETERS'] = None
+
+if os.environ['NOTIFY_PARAMETERS'] is None:
+  os.system('%s %s@%s %s --to %s --message \\"%s\\"' % (binary, signal_user, signal_gateway, signal_wrapper, recipient, message))
+else:
+  os.system('%s %s@%s %s --to %s --message \\"%s\\" %s' % (binary, signal_user, signal_gateway, signal_wrapper, recipient, message, os.environ['NOTIFY_PARAMETERS']))
