@@ -4,9 +4,19 @@
 
 import os, sys, requests
 
-message = os.environ['NOTIFY_HOSTNAME'] + " "
 
 if os.environ['NOTIFY_WHAT'] == 'SERVICE':
+    if os.environ['NOTIFY_SERVICESTATE'] == "OK":
+        message = "\U00002705".decode("unicode-escape")
+    elif os.environ['NOTIFY_SERVICESTATE'] == "WARNING":
+        message = "\U000026A0".decode("unicode-escape")
+    elif os.environ['NOTIFY_SERVICESTATE'] == "CRITICAL":
+        message = "\U0000274C".decode("unicode-escape")
+    elif os.environ['NOTIFY_SERVICESTATE'] == "UNKNOWN":
+        message = "\U00002734".decode("unicode-escape")
+    else:
+        message = ""
+    message += " " + os.environ['NOTIFY_HOSTNAME'] + " "
     message += os.environ['NOTIFY_SERVICESTATE'] + " "
     message += os.environ['NOTIFY_SERVICEDESC'] + " "
     message += os.environ['NOTIFY_SERVICEOUTPUT']
